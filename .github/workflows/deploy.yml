@@ -1,0 +1,23 @@
+name: heroku-ci-train
+on:
+    push:
+        branch: main
+
+jobs:
+    build:
+        name: Build and deploy
+        runs-on: ubuntu-latest
+        steps:
+            - uses: actions/checkout@v2
+            - name: Set up JDK 17
+              uses: actions/setup-java@v1
+              with:
+                  java-version: 17
+            - name: build
+              run: ./gradlew clean war stage webapp
+            - name: deploy
+              uses: akhileshns/heroku-deploy@v3.12.12
+              with:
+                  heroku_api_key: ${{secret.HEROKU_API_KEY}}
+                  heroku_app_name: "heroku-ci-train"
+                  heroku_email: "bolichep@gmail.com"
