@@ -18,6 +18,6 @@ jobs:
             - name: deploy
               uses: akhileshns/heroku-deploy@v3.12.12
               with:
-                  heroku_api_key: ${{secret.HEROKU_API_KEY}}
+                  heroku_api_key: ${{secrets.HEROKU_API_KEY}}
                   heroku_app_name: "heroku-ci-train"
                   heroku_email: "bolichep@gmail.com"
