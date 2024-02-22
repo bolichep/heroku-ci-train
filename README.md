@@ -1,3 +1,3 @@
 # heroku-ci
 
-deleting soon
+deleting soon, very soon
